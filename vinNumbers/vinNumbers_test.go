@@ -18,3 +18,27 @@ func TestVinNumbers(t *testing.T) {
 		}
 	})
 }
+
+func TestValidateCheckDigit(t *testing.T) {
+	t.Run("Should return true if check digit is valid", func(t *testing.T) {
+		expected := true
+		actual := validateCheckDigit("0471958692")
+		if expected != actual {
+			t.Fatalf("expected %v, but got %v", expected, actual)
+		}
+	})
+	t.Run("Should return true if check digit is valid", func(t *testing.T) {
+		expected := false
+		actual := validateCheckDigit("0471958694")
+		if expected != actual {
+			t.Fatalf("expected %v, but got %v", expected, actual)
+		}
+	})
+	t.Run("Another valid VIN", func(t *testing.T) {
+		expected := true
+		actual := validateCheckDigit("0471606958")
+		if expected != actual {
+			t.Fatalf("expected %v, but got %v", expected, actual)
+		}
+	})
+}
