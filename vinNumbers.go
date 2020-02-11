@@ -1,4 +1,4 @@
-package main
+package vinnumbers
 
 import (
 	"strconv"
@@ -31,8 +31,4 @@ func vinNumbers(vin string) bool {
 		return true
 	}
 	return false
-}
-
-func main() {
-
 }
