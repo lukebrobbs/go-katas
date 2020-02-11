@@ -1,4 +1,4 @@
-name: Go
+name: Go-test
 on: [push]
 jobs:
   test:
@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test
-        run: ls
+        run: go test .
