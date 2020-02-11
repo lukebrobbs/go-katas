@@ -17,18 +17,16 @@ func validateCheckDigit(vin string) bool {
 
 	checkDigit := stringToInt(string(vin[len(vin)-1]))
 
-	for pos, char := range vin {
-		if pos != len(vin)-1 {
-			val := stringToInt(string(char))
-			total += val * pos
-		}
+	for pos, char := range vin[:len(vin)-1] {
+		val := stringToInt(string(char))
+		total += val * pos
 	}
 	return total%11 == checkDigit
 }
 
 func vinNumbers(vin string) bool {
 	if len(vin) == 10 {
-		return true
+		return validateCheckDigit(vin)
 	}
 	return false
 }
